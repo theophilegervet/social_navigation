@@ -448,6 +448,9 @@ class ReceptacleSegmentationSensorConfig(LabSensorConfig):
 class OvmmNavGoalSegmentationSensorConfig(LabSensorConfig):
     type: str = "OvmmNavGoalSegmentationSensor"
 
+@attr.s(auto_attribs=True, slots=True)
+class CatNavGoalSegmentationSensorConfig(LabSensorConfig):
+    type: str = "CatNavGoalSegmentationSensor"
 
 @attr.s(auto_attribs=True, slots=True)
 class LocalizationSensorConfig(LabSensorConfig):
