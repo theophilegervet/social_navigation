@@ -1273,6 +1273,8 @@ class FollowingDistance(UsesArticulatedAgentInterface, Measure):
         super().__init__(**kwargs)
         self._sim = sim
         self._config = config
+        self.robot_poses = []
+        self.human_poses = []
 
     @staticmethod
     def _get_uuid(*args, **kwargs):
@@ -1289,16 +1291,20 @@ class FollowingDistance(UsesArticulatedAgentInterface, Measure):
         return distances
 
     def update_metric(self, *args, episode, task, observations, **kwargs):
-        robot_nav_action = task.actions["agent_0_oracle_nav_action"]
-        human_nav_action = task.actions["agent_1_oracle_nav_action"]
-        robot_poses = robot_nav_action.poses
-        human_poses = human_nav_action.poses
+        robot_pose = self._sim.get_agent_data(0).articulated_agent.base_pos
+        human_pose = self._sim.get_agent_data(1).articulated_agent.base_pos
+
+        self.robot_poses.append(robot_pose)
+        self.human_poses.append(human_pose)
+        robot_poses = self.robot_poses
+        human_poses = self.human_poses
 
         if len(human_poses) > 0 and len(robot_poses) > 0:
             # TODO Why is len(robot_poses) != len(human_poses)?
-            # if len(human_poses) != len(robot_poses):
-            #     print(f"{len(human_poses)} human poses != {len(robot_poses)} robot poses")
-
+            if len(human_poses) != len(robot_poses):
+                print(
+                    f"{len(human_poses)} human poses != {len(robot_poses)} robot poses"
+                )
             robot_poses = robot_poses[: len(human_poses)]
             human_poses = human_poses[: len(robot_poses)]
 
