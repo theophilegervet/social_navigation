@@ -1194,6 +1194,7 @@ class FindingSuccessRate(UsesArticulatedAgentInterface, Measure):
                 )
             robot_poses = robot_poses[: len(human_poses)]
             human_poses = human_poses[: len(robot_poses)]
+            print(type(robot_poses[0]))
 
             found_human_list = self.found_human_list(robot_poses, human_poses)
             found = sum(found_human_list) > 0
