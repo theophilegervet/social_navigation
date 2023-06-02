@@ -1,13 +1,13 @@
 # @package hydra.launcher
 submitit_folder: ${hydra.sweep.dir}/.submitit/%j
 timeout_min: 2160
-nodes: 1
-cpus_per_task: 10
+nodes: 2
+cpus_per_task: 20
 mem_per_cpu: 5
 name: ${hydra.job.name}
 _target_: hydra_plugins.hydra_submitit_launcher.submitit_launcher.SlurmLauncher
 partition: devlab
-tasks_per_node: 1 #make sure that tasks_per_node and gres are the same
+tasks_per_node: 2 #make sure that tasks_per_node and gres are the same
 gres: gpu:1
 setup:
   - export MAIN_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
