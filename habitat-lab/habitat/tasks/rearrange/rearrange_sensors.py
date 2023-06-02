@@ -1180,6 +1180,9 @@ class FindingSuccessRate(UsesArticulatedAgentInterface, Measure):
     def update_metric(self, *args, episode, task, observations, **kwargs):
         robot_pose = self._sim.get_agent_data(0).articulated_agent.base_pos
         human_pose = self._sim.get_agent_data(1).articulated_agent.base_pos
+        print("robot_pose", robot_pose)
+        print("np.array([robot_pose.x, robot_pose.y, robot_pose.z])",
+              np.array([robot_pose.x, robot_pose.y, robot_pose.z]))
 
         self.robot_poses.append(robot_pose)
         self.human_poses.append(human_pose)
@@ -1194,7 +1197,6 @@ class FindingSuccessRate(UsesArticulatedAgentInterface, Measure):
                 )
             robot_poses = robot_poses[: len(human_poses)]
             human_poses = human_poses[: len(robot_poses)]
-            print(type(robot_poses[0]))
 
             found_human_list = self.found_human_list(robot_poses, human_poses)
             found = sum(found_human_list) > 0
