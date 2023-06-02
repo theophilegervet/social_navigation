@@ -31,6 +31,7 @@ defaults:
     - has_finished_oracle_nav
   - /habitat/task/actions@habitat.task.actions.agent_0_arm_action: arm_action
   - override /habitat/task/rearrange: multi_agent_tidy_house_base
+  - override /habitat/simulator/agents@habitat.simulator.agents.agent_0: rgbd_head_rgbd_arm_agent
   - _self_
 
 habitat:
