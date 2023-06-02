@@ -1172,7 +1172,7 @@ class FindingSuccessRate(UsesArticulatedAgentInterface, Measure):
         self, robot_poses, human_poses, min_dist=1.0, max_dist=2.0
     ):
         distances = [
-            np.linalg.norm((robot_poses[i] - human_poses[i])[[0, 2]])
+            np.linalg.norm((robot_poses[i] - human_poses[i]))
             for i in range(len(robot_poses))
         ]
         return [d >= min_dist and d <= max_dist for d in distances]
@@ -1180,12 +1180,8 @@ class FindingSuccessRate(UsesArticulatedAgentInterface, Measure):
     def update_metric(self, *args, episode, task, observations, **kwargs):
         robot_pose = self._sim.get_agent_data(0).articulated_agent.base_pos
         human_pose = self._sim.get_agent_data(1).articulated_agent.base_pos
-        print("robot_pose", robot_pose)
-        print("np.array([robot_pose.x, robot_pose.y, robot_pose.z])",
-              np.array([robot_pose.x, robot_pose.y, robot_pose.z]))
-
-        self.robot_poses.append(robot_pose)
-        self.human_poses.append(human_pose)
+        self.robot_poses.append(np.array([robot_pose.x, robot_pose.y, robot_pose.z]))
+        self.human_poses.append(np.array([human_pose.x, human_pose.y, human_pose.z]))
         robot_poses = self.robot_poses
         human_poses = self.human_poses
 
@@ -1233,7 +1229,7 @@ class FollowingRate(UsesArticulatedAgentInterface, Measure):
         self, robot_poses, human_poses, min_dist=1.0, max_dist=2.0
     ):
         distances = [
-            np.linalg.norm((robot_poses[i] - human_poses[i])[[0, 2]])
+            np.linalg.norm((robot_poses[i] - human_poses[i]))
             for i in range(len(robot_poses))
         ]
         return [d >= min_dist and d <= max_dist for d in distances]
@@ -1241,9 +1237,8 @@ class FollowingRate(UsesArticulatedAgentInterface, Measure):
     def update_metric(self, *args, episode, task, observations, **kwargs):
         robot_pose = self._sim.get_agent_data(0).articulated_agent.base_pos
         human_pose = self._sim.get_agent_data(1).articulated_agent.base_pos
-
-        self.robot_poses.append(robot_pose)
-        self.human_poses.append(human_pose)
+        self.robot_poses.append(np.array([robot_pose.x, robot_pose.y, robot_pose.z]))
+        self.human_poses.append(np.array([human_pose.x, human_pose.y, human_pose.z]))
         robot_poses = self.robot_poses
         human_poses = self.human_poses
         if len(human_poses) > 0 and len(robot_poses) > 0:
@@ -1288,7 +1283,7 @@ class FollowingDistance(UsesArticulatedAgentInterface, Measure):
 
     def distances(self, robot_poses, human_poses):
         distances = [
-            np.linalg.norm((robot_poses[i] - human_poses[i])[[0, 2]])
+            np.linalg.norm((robot_poses[i] - human_poses[i]))
             for i in range(len(robot_poses))
         ]
         return distances
@@ -1296,9 +1291,8 @@ class FollowingDistance(UsesArticulatedAgentInterface, Measure):
     def update_metric(self, *args, episode, task, observations, **kwargs):
         robot_pose = self._sim.get_agent_data(0).articulated_agent.base_pos
         human_pose = self._sim.get_agent_data(1).articulated_agent.base_pos
-
-        self.robot_poses.append(robot_pose)
-        self.human_poses.append(human_pose)
+        self.robot_poses.append(np.array([robot_pose.x, robot_pose.y, robot_pose.z]))
+        self.human_poses.append(np.array([human_pose.x, human_pose.y, human_pose.z]))
         robot_poses = self.robot_poses
         human_poses = self.human_poses
 
