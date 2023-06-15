@@ -238,6 +238,7 @@ class NetPolicy(nn.Module, Policy):
         self, net, action_space, policy_config=None, aux_loss_config=None
     ):
         super().__init__()
+        breakpoint()
         self.net = net
         self.dim_actions = get_num_actions(action_space)
         self.action_distribution: Union[CategoricalNet, GaussianNet]
