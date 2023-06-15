@@ -289,23 +289,23 @@ class OracleNavSocAction(BaseVelAction, HumanoidJointAction):
         if self._counter == 0:
             self.get_waypoints()
             self.waypoint_increased_step = self._counter
-        print(
-            "step ",
-            str(self._counter),
-            ": dist is ",
-            self._get_distance(
-                self._get_current_pose()[0],
-                self.waypoints[self.waypoint_pointer],
-            ),
-        )
+        # print(
+        #     "step ",
+        #     str(self._counter),
+        #     ": dist is ",
+        #     self._get_distance(
+        #         self._get_current_pose()[0],
+        #         self.waypoints[self.waypoint_pointer],
+        #     ),
+        # )
         # print("pointer is ", self.waypoint_pointer)
         # print("cur pose is ",self._get_current_pose() )
-        print(
-            "step ",
-            str(self._counter),
-            ": cur pose is ",
-            self._get_current_pose()[0],
-        )
+        # print(
+        #     "step ",
+        #     str(self._counter),
+        #     ": cur pose is ",
+        #     self._get_current_pose()[0],
+        # )
         # print("prev navigable point is ", self.prev_navigable_point)
         # if self._counter %20==0:
         # If almost there, resample
