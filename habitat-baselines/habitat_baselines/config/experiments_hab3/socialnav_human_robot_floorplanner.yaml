@@ -42,6 +42,9 @@ hydra:
 
 habitat:
   task:
+    reward_measure: social_nav_reward
+    slack_reward: 0.
+    success_reward: 0.
     actions:
       agent_0_oracle_nav_with_backing_up_action:
         type: OracleNavWithBackingUpAction
