@@ -1,3 +1,5 @@
+defaults:
+  - _self_
 habitat:
   seed: 100
   env_task: GymHabitatEnv
