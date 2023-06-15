@@ -2,7 +2,7 @@
 ```
 HYDRA_FULL_ERROR=1 HABITAT_ENV_DEBUG=1 MAGNUM_LOG=quiet HABITAT_SIM_LOG=quiet \
   python habitat-baselines/habitat_baselines/run.py -m \
-  --config-name experiments_hab3/socialnav_human_robot_floorplanner.yaml \
+  --config-name experiments_hab3/socialnav_human_robot_floorplanner2.yaml \
   habitat_baselines.num_environments=1 \
   habitat_baselines.torch_gpu_id=1 \
   "~habitat.task.actions.agent_0_rearrange_stop" \
