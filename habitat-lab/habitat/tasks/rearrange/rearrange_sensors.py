@@ -1116,7 +1116,6 @@ class HasFinishedOracleNavSensor(UsesArticulatedAgentInterface, Sensor):
             ):
                 use_k = f"agent_{self.agent_id}_oracle_nav_soc_action"
             else:
-                breakpoint()
                 raise Exception("No oracle action for nav!")
         else:
             if "oracle_nav_action" in self._task.actions:

@@ -58,7 +58,6 @@ class PointNavResNetPolicy(NetPolicy):
         fuse_keys: Optional[List[str]] = None,
         **kwargs,
     ):
-        breakpoint()
         if policy_config is not None:
             discrete_actions = (
                 policy_config.action_distribution_type == "categorical"
