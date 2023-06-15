@@ -990,7 +990,6 @@ class PPOTrainer(BaseRLTrainer):
             else:
                 step_data = [a.item() for a in action_data.env_actions.cpu()]
 
-            breakpoint()
             outputs = self.envs.step(step_data)
 
             observations, rewards_l, dones, infos = [
