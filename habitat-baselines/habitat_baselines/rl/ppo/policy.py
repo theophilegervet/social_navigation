@@ -306,6 +306,7 @@ class NetPolicy(nn.Module, Policy):
             action = distribution.sample()
 
         action_log_probs = distribution.log_probs(action)
+        breakpoint()
         return PolicyActionData(
             values=value,
             actions=action,
