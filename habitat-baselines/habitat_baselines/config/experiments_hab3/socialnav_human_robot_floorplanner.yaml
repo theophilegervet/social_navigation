@@ -14,6 +14,7 @@ defaults:
   - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.agent_0.hierarchical_policy.defined_skills: oracle_skills_ma
   - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.agent_1.hierarchical_policy.defined_skills: oracle_skills_ma_humanoid
   - /habitat/task/measurements:
+    - social_nav_reward
     - composite_subgoal_reward
     - runtime_perf_stats
     - finding_success_rate
@@ -42,9 +43,6 @@ hydra:
 
 habitat:
   task:
-    reward_measure: social_nav_reward
-    slack_reward: 0.
-    success_reward: 0.
     actions:
       agent_0_oracle_nav_with_backing_up_action:
         type: OracleNavWithBackingUpAction
