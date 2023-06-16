@@ -68,8 +68,8 @@ habitat:
         enable_lateral_move: False
         turn_thresh: 0.1
         dist_thresh: 0.5
-      agent_0_arm_action:
-        grip_controller: MagicGraspAction
+#      agent_0_arm_action:
+#        grip_controller: MagicGraspAction
       agent_1_oracle_nav_soc_action:
         type: OracleNavSocAction
         agent_index: 1
