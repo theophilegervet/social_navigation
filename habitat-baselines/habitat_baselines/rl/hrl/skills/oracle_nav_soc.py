@@ -119,24 +119,17 @@ class OracleNavSocPolicy(NnSkillPolicy):
         masks,
         batch_idx,
     ) -> torch.BoolTensor:
-        # ret = torch.zeros(masks.shape[0], dtype=torch.bool)
-
-        # cur_pos = observations[LocalizationSensor.cls_uuid].cpu()
-
-        # for i, batch_i in enumerate(batch_idx):
-        #     prev_pos = self._prev_pos[batch_i]
-        #     if prev_pos is not None:
-        #         movement = (prev_pos - cur_pos[i]).pow(2).sum().sqrt()
-        #         ret[i] = movement < self._config.stop_thresh
-        #     self._prev_pos[batch_i] = cur_pos[i]
-
+        ret = torch.zeros(masks.shape[0], dtype=torch.bool)
         finish_oracle_nav = observations[
             HasFinishedOracleNavSensor.cls_uuid
         ].cpu()
-        ret = finish_oracle_nav[batch_idx].to(torch.bool)
-        # print("Oracle nav soc ret is ", ret)
-        # ret = torch.zeros(masks.shape[0], dtype=torch.bool)
+        ret = finish_oracle_nav.to(torch.bool)[:, 0]
         return ret
+        # finish_oracle_nav = observations[
+        #     HasFinishedOracleNavSensor.cls_uuid
+        # ].cpu()
+        # ret = finish_oracle_nav[batch_idx].to(torch.bool)
+        # return ret
 
     def _parse_skill_arg(self, skill_arg):
         # if len(skill_arg) == 2:
