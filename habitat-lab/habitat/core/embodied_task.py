@@ -329,6 +329,9 @@ class EmbodiedTask:
         observations: Any = {}
         if isinstance(action_name, tuple):  # there are multiple actions
             for i, a_name in enumerate(action_name):
+                # TODO Hack to use only base_velocity action
+                if action_name in ["agent_0_arm_action", "agent_0_grip_action", "agent_0_oracle_nav_with_backing_up_action", "agent_0_pddl_action", "agent_0_rearrange_stop"]:
+                    continue
                 self._step_single_action(
                     observations,
                     a_name,
