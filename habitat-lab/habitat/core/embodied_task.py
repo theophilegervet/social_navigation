@@ -316,7 +316,7 @@ class EmbodiedTask:
         )
 
     def step(self, action: Dict[str, Any], episode: Episode):
-        breakpoint()
+        # breakpoint()
         action_name = action["action"]
         if "action_args" not in action or action["action_args"] is None:
             action["action_args"] = {}
