@@ -181,6 +181,8 @@ class OracleNavAction(BaseVelAction, HumanoidJointAction):
         nav_to_target_idx = kwargs[
             self._action_arg_prefix + "oracle_nav_action"
         ]
+        if nav_to_target_idx == -1:
+            return None
         if nav_to_target_idx <= 0 or nav_to_target_idx > len(
             self._poss_entities
         ):
@@ -442,6 +444,8 @@ class OracleNavWithBackingUpAction(BaseVelNonCylinderAction, OracleNavAction):  
         nav_to_target_idx = kwargs[
             self._action_arg_prefix + "oracle_nav_with_backing_up_action"
         ]
+        if nav_to_target_idx == -1:
+            return None
         if nav_to_target_idx <= 0 or nav_to_target_idx > len(
             self._poss_entities
         ):
