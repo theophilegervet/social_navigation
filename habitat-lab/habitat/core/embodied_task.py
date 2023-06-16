@@ -317,11 +317,11 @@ class EmbodiedTask:
 
     def step(self, action: Dict[str, Any], episode: Episode):
         # TODO Hack to use only base_velocity action
-        action["action_args"]["agent_0_arm_action"][:] = 0
-        action["action_args"]["agent_0_grip_action"][:] = 0
-        action["action_args"]["agent_0_oracle_nav_with_backing_up_action"] = -1
-        action["action_args"]["agent_0_pddl_action"] = 0
-        action["action_args"]["agent_0_rearrange_stop"] = 0
+        # action["action_args"]["agent_0_arm_action"][:] = 0
+        # action["action_args"]["agent_0_grip_action"][:] = 0
+        # action["action_args"]["agent_0_oracle_nav_with_backing_up_action"] = -1
+        # action["action_args"]["agent_0_pddl_action"] = 0
+        # action["action_args"]["agent_0_rearrange_stop"] = 0
 
         action_name = action["action"]
         if "action_args" not in action or action["action_args"] is None:
