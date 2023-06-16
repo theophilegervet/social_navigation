@@ -48,8 +48,8 @@ habitat:
     success_reward: 0.
     measurements:
       cooperate_subgoal_reward:
-        end_on_collide: True
-        collide_penalty: 0.5
+        end_on_collide: False
+#        collide_penalty: 0.5
     actions:
       agent_0_oracle_nav_with_backing_up_action:
         type: OracleNavWithBackingUpAction
