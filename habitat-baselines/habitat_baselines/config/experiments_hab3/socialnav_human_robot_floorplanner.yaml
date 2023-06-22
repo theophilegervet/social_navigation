@@ -14,12 +14,12 @@ defaults:
   - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.agent_0.hierarchical_policy.defined_skills: oracle_skills_ma
   - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.agent_1.hierarchical_policy.defined_skills: oracle_skills_ma_humanoid
   - /habitat/task/measurements:
-#    - social_nav_reward
-#    - composite_subgoal_reward
-#    - runtime_perf_stats
-#    - finding_success_rate
-#    - following_rate
-#    - following_distance
+    - social_nav_reward
+    - composite_subgoal_reward
+    - runtime_perf_stats
+    - finding_success_rate
+    - following_rate
+    - following_distance
   - /habitat/task/lab_sensors:
     - relative_resting_pos_sensor
     - target_start_sensor
