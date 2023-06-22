@@ -11,7 +11,8 @@ TORCH_DISTRIBUTED_DEBUG=DETAIL NCCL_DEBUG=INFO CUDA_LAUNCH_BLOCKING=1 \
   torchrun --nproc_per_node 8 habitat-baselines/habitat_baselines/run.py -m \
   --config-name experiments_hab3/socialnav_human_robot_floorplanner.yaml \
   habitat_baselines.num_environments=5 \
-  habitat_baselines.rl.ddppo.distrib_backend=GLOO
+  habitat_baselines.rl.ddppo.distrib_backend=GLOO \
+  habitat_baselines.rl.ppo.num_steps=1
 ```
 
 ### Evaluating oracle policy
