@@ -10,7 +10,7 @@ TORCH_DISTRIBUTED_DEBUG=DETAIL NCCL_DEBUG=INFO CUDA_LAUNCH_BLOCKING=1 \
   HYDRA_FULL_ERROR=1 HABITAT_ENV_DEBUG=1 MAGNUM_LOG=quiet HABITAT_SIM_LOG=quiet \
   torchrun --nproc_per_node 8 habitat-baselines/habitat_baselines/run.py -m \
   --config-name experiments_hab3/socialnav_human_robot_floorplanner.yaml \
-  habitat_baselines.num_environments=2 \
+  habitat_baselines.num_environments=5 \
   habitat_baselines.rl.ddppo.distrib_backend=GLOO
 ```
 

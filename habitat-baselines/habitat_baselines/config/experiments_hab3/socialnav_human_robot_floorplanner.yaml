@@ -21,16 +21,16 @@ defaults:
 #    - following_rate
 #    - following_distance
   - /habitat/task/lab_sensors:
-    - relative_resting_pos_sensor
-    - target_start_sensor
-    - goal_sensor
-    - is_holding_sensor
-    - end_effector_sensor
-    - target_start_gps_compass_sensor
-    - target_goal_gps_compass_sensor
-    - localization_sensor
-    - has_finished_oracle_nav
-    - other_agent_gps
+#    - relative_resting_pos_sensor
+#    - target_start_sensor
+#    - goal_sensor
+#    - is_holding_sensor
+#    - end_effector_sensor
+#    - target_start_gps_compass_sensor
+#    - target_goal_gps_compass_sensor
+#    - localization_sensor
+#    - has_finished_oracle_nav
+#    - other_agent_gps
   - /habitat/task/actions@habitat.task.actions.agent_0_arm_action: arm_action
   - override /habitat/task/rearrange: multi_agent_tidy_house_base_spot_social
   # For Spot observation space
