@@ -536,6 +536,7 @@ class PPOTrainer(BaseRLTrainer):
             self.window_episode_stats[k].append(stats[i])
 
         if self._is_distributed:
+            print("DEBUG DISTRIBUTED ppo_trainer.py 2")
             loss_name_ordering = sorted(losses.keys())
             stats = torch.tensor(
                 [losses[k] for k in loss_name_ordering] + [count_steps_delta],
@@ -766,6 +767,7 @@ class PPOTrainer(BaseRLTrainer):
                 profiling_wrapper.range_pop()  # rollouts loop
 
                 if self._is_distributed:
+                    print("DEBUG DISTRIBUTED ppo_trainer.py 1")
                     self.num_rollouts_done_store.add("num_done", 1)
 
                 losses = self._update_agent()
