@@ -110,6 +110,8 @@ class PPOTrainer(BaseRLTrainer):
 
         orig_device = t.device
         t = t.to(device=self.device)
+        print("DEBUG DISTRIBUTED ppo_trainer.py 3", type(t), t.shape)
+        print("self.config.habitat_baselines.torch_gpu_id", self.config.habitat_baselines.torch_gpu_id)
         torch.distributed.all_reduce(t)
 
         return t.to(device=orig_device)
