@@ -29,7 +29,7 @@ defaults:
 #    - target_start_gps_compass_sensor
 #    - target_goal_gps_compass_sensor
 #    - localization_sensor
-#    - has_finished_oracle_nav
+    - has_finished_oracle_nav
 #    - other_agent_gps
   - /habitat/task/actions@habitat.task.actions.agent_0_arm_action: arm_action
   - override /habitat/task/rearrange: multi_agent_tidy_house_base_spot_social
@@ -91,9 +91,8 @@ habitat:
 #      - agent_0_is_holding
 #      - agent_0_ee_pos
 #      - agent_0_localization_sensor
-#      - agent_0_has_finished_oracle_nav
+      - agent_0_has_finished_oracle_nav
 #      - agent_0_other_agent_gps
-#      - agent_0_has_finished_oracle_nav
       - agent_1_head_depth
 #      - agent_1_relative_resting_position
 #      - agent_1_obj_start_sensor
@@ -103,9 +102,8 @@ habitat:
 #      - agent_1_is_holding
 #      - agent_1_ee_pos
 #      - agent_1_localization_sensor
-#      - agent_1_has_finished_oracle_nav
+      - agent_1_has_finished_oracle_nav
 #      - agent_1_other_agent_gps
-#      - agent_1_has_finished_oracle_nav
   simulator:
     # Add Spot robot agents
     agents:
